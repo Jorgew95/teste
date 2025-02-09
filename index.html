@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Comentários</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+    <h1>Deixe seu comentário</h1>
+
+    <!-- Formulário de envio de comentário -->
+    <form id="commentForm">
+        <input type="text" id="name" placeholder="Seu nome" required>
+        <textarea id="message" placeholder="Escreva seu comentário" required></textarea>
+        <button type="submit">Enviar Comentário</button>
+    </form>
+
+    <div id="commentsContainer">
+        <h2>Comentários</h2>
+        <ul id="commentsList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
