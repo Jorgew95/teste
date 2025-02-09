@@ -1,7 +1,8 @@
 // Configure seu Supabase
-const supabaseUrl = 'https://rfobseearydxqhgszlgy.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmb2JzZWVhcnlkeHFoZ3N6bGd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwNTY0MzEsImV4cCI6MjA1NDYzMjQzMX0.csF5Iv595Bw80vQC0eqoZ2hms-CPhgkkZ3rxL6Itl5Y';
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+import { createClient } from '@supabase/supabase-js'
+const supabaseUrl = 'https://rfobseearydxqhgszlgy.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Referências aos elementos do DOM
 const commentForm = document.getElementById('commentForm');
