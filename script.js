@@ -16,24 +16,22 @@ commentForm.addEventListener('submit', async (e) => {
     const name = nameInput.value;
     const message = messageInput.value;
 
-    // Salvar no Supabase
+    console.log("Enviando comentário:", name, message); // Debug
+
     const { data, error } = await supabase
         .from('comments')
-        .insert([
-            { name: name, message: message }
-        ]);
+        .insert([{ name: name, message: message }]);
 
     if (error) {
-        alert('Erro ao enviar comentário');
-        console.error(error);
+        console.error("Erro ao inserir no Supabase:", error);
+        alert("Erro ao enviar comentário. Verifique o console.");
     } else {
-        // Limpar campos
+        console.log("Comentário salvo:", data);
         nameInput.value = '';
         messageInput.value = '';
-        loadComments(); // Recarregar os comentários
+        loadComments(); // Recarrega os comentários
     }
 });
-
 // Função para carregar os comentários
 async function loadComments() {
     const { data, error } = await supabase
@@ -56,6 +54,9 @@ async function loadComments() {
         });
     }
 }
+
+
+
 
 // Carregar os comentários ao iniciar
 loadComments();
