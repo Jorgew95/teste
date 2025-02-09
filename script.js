@@ -1,9 +1,11 @@
 // Configure seu Supabase
-import { createClient } from '@supabase/supabase-js'
-const supabaseUrl = 'https://rfobseearydxqhgszlgy.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+require('dotenv').config(); // Importa as variáveis do .env (Node.js)
 
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+console.log("Conectado ao Supabase:", supabaseUrl); // Debug
 // Referências aos elementos do DOM
 const commentForm = document.getElementById('commentForm');
 const nameInput = document.getElementById('name');
